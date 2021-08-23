@@ -54,7 +54,11 @@ export class Article extends HTMLElement {
 	addDescription() {
 		const descriptionNode = document.createElement('div')
 		descriptionNode.classList.add('div__article__description')
-		descriptionNode.innerHTML = this.getAttribute('data-description')
+		let descriptionText = this.getAttribute('data-description') != 'null'
+			? this.getAttribute('data-description')
+			: ''
+
+		descriptionNode.innerHTML = descriptionText
 
 		return descriptionNode
 	}
